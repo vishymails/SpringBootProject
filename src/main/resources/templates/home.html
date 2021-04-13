@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Spring Boot Project</title>
+		<style>
+			table, th, td {
+			   border: 1px solid black;
+			   border-spacing: 0px;
+			}
+			th, td {
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body style="font-family:Segoe UI">
+	<h1> employee Details</h1>
+	<br />
+		<table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Employee Name</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee : ${employees}">
+					<td th:text="${employee.emp_id}"></td>
+					<td th:text="${employee.lastName}"></td>
+					<td th:text="${employee.firstName}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<h2>Add employee</h2>
+		<form action="/addEmployee" method="POST">
+			<table>
+			<tr>
+			<td>
+			employee </td> <td> <input type="text" id="lastName" name="lastName" /><br /> 
+			</td>
+			</tr>
+			<tr>
+			<td>
+			Description </td> <td> <textarea rows="5" cols="70" id="firstName" name="firstName"> </textarea><br />
+			
+			</td>
+			</tr>
+			<tr>
+			<td colspan="2"><input type="submit" value="Add employee" /></td></tr>
+			</table>
+		</form>
+	</body>
+</html>

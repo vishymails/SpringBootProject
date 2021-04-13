@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      
+        <style>
+            body{
+                font-family: "Times new roman";
+                background-color: white;
+                margin: 0;
+            }
+
+            h2{
+                background-color: gray;
+                color: black;
+                padding: 10px;
+                text-align: center;
+            }
+            td{
+                padding: 7px;
+            }
+            input{
+                height: 30px;
+                border-radius: 10px;
+                border:1px solid black;
+            }
+            input:focus{
+                outline: none;
+                border: 1px solid black;
+            }
+            input:hover{
+                box-shadow: 5px 5px 5px black;
+            }
+            .button{
+                background-color: gray;
+                color: black;
+                border: none;
+                padding: 7px
+            }
+            .button:hover {
+                cursor: pointer;
+                box-shadow: 5px 5px 5px red;
+            }
+        </style>
+
+        <script>src="https://code.jquery.com/jquery-3.5.1.js"</script>
+    </head>
+    <body>
+    
+    <!-- 
+    <h1> employee Details</h1>
+	<br />
+		<table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Employee Name</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee : ${employees}">
+					<td th:text="${employee.emp_id}"></td>
+					<td th:text="${employee.firstName}"></td>
+					<td th:text="${employee.lastName}"></td>
+					<td th:text="${employee.gender}"></td>
+					<td th:text="${employee.dob}"></td>
+					<td th:text="${employee.panNum}"></td>
+					<td th:text="${employee.aadhaarNum}"></td>
+					<td th:text="${employee.mobileNum}"></td>
+					<td th:text="${employee.emailId}"></td>
+					<td th:text="${employee.officeMail}"></td>
+					<td th:text="${employee.permanentAddress}"></td>
+					<td th:text="${employee.presentAddress}"></td>
+					<td th:text="${employee.bloodGroup}"></td>
+					<td th:text="${employee.profilePict}"></td>
+					<td th:text="${employee.doj}"></td>
+					<td th:text="${employee.empLevel}"></td>
+					<td th:text="${employee.postName}"></td>
+					<td th:text="${employee.basicPay}"></td>
+					<td th:text="${employee.houseAllowance}"></td>
+			
+				</tr>
+			</tbody>
+		</table>
+		<br />
+        -->
+       <form action="/addEmployeeRec" method="POST">
+       
+            <div id="Employee Search">
+                <h2 align="center">Add/Update Employee Record</h2>
+                <table width="100%">
+                    <tr>
+                        <td>Emp No# </td>
+                        <td>
+                            <input type="text"  size="50" id="emp_id" name="emp_id">
+                        </td>                                               
+                        
+                    </tr>
+                    <tr>
+                        <td>Firstname</td>
+                        <td>
+                            <input type="text"  size="50" id="firstName" name="firstName">
+                        </td>
+                        <td>Lastname</td>
+                        <td>
+                            <input type="text"  size="50" id="lastName" name="lastName" >
+                        </td>                                                
+                        
+                    </tr>
+                    <tr>
+                        <td>Date of birth</td>
+                        <td>
+                            <input type="date"  size="50" id="dob" name="dob">
+                        </td>
+                        <td>Gender</td>
+                        <td>
+                            <select id="gender" name="gender">
+                                <option> </option>
+                                <option> Male</option>
+                                <option> Female</option>
+                                <option> Others</option>
+                            </select>
+                        </td>                                               
+                        
+                    </tr>
+                    <tr>
+                        <td>Mobile num</td>
+                        <td>
+                            <input type="text"  size="50" id="mobileNum" name="mobileNum">
+                        </td>
+                        <td>Email (Personal)</td>
+                        <td>
+                            <input type="text"  size="50" id="emailId" name="emailId">
+                        </td>                                                
+                        
+                    </tr>
+                    <tr>
+                        <td>Office Mail</td>
+                        <td>
+                            <input type="text"  size="50" id="officeMail" name="officeMail">
+                        </td>
+                                                                       
+                        
+                    </tr>
+                    <tr>
+                        <td>Joining date</td>
+                        <td>
+                            <input type="date"  size="50" id="doj" name="doj">
+                        </td>
+                        <td>Employee level</td>
+                        <td>
+                            <select id="empLevel" name="empLevel">
+                                <option> </option>
+                                <option> L1</option>
+                                <option> L2</option>
+                                <option> L3</option>
+                                <option> L4</option>
+                                <option> L5</option>
+                            </select>
+                        </td>                                                     
+                        
+                    </tr>
+                    <tr>
+                        <td>Post</td>
+                        <td>
+                            <input type="text"  size="50" id="postName" name="postName">
+                        </td>
+                        <td>Blood Group</td>
+                        <td>
+                        
+                            <select id="bloodGroup" name="bloodGroup">
+                                <option> </option>
+                                <option> A+</option>
+                                <option> A-</option>
+                                <option> B+</option>
+                                <option> B-</option>
+                                <option> O+</option>
+                                <option> O-</option>
+                                <option> AB+</option>
+                                <option> Ab-</option>
+                            </select>
+                        </td>                                                         
+                        
+                    </tr>
+                    <tr>
+                        <td>Basic pay</td>
+                        <td>
+                            <input type="text"  size="50" id="basicPay" name="basicPay">
+                        </td>
+                        <td>House allowance</td>
+                        <td>
+                            <input type="text"  size="50" id="houseAllowance" name="houseAllowance">
+                        </td>                                                
+                        
+                    </tr>
+                    <tr>
+                        <td>Pan card no</td>
+                        <td>
+                            <input type="text"  size="50" id="panNum" name="panNum">
+                        </td>
+                        <td>Aadhaar card no</td>
+                        <td>
+                            <input type="text"  size="50" id="aadhaarNum" name="aadhaarNum">
+                        </td>                                                
+                        
+                    </tr>
+                    <tr>
+                        <td>Parmanent address</td>
+                        <td>
+                           <textarea  rows="4" cols="52" id="permanentAddress" name="permanentAddress"></textarea>
+                        </td>
+                        <td>Present address</td>
+                        <td>
+                            <textarea  rows="4" cols="52" id="presentAddress" name="presentAddress"></textarea>
+                        </td>                                                
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td  align="right">
+                             <input type="Submit" value="Submit" class="button">
+                        </td>
+                        <td>
+                            <input type="button" value="Cancel" class="button">
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+        </form>
+    </body>
+</html>

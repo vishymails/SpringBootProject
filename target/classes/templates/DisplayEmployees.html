@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title>Spring Boot Project</title>
+		<style>
+			table, th, td {
+			   border: 1px solid black;
+			   border-spacing: 0px;
+			}
+			th, td {
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body style="font-family:Segoe UI">
+	<h1> Employee Details</h1>
+	<br />
+		<table>
+			<thead>
+				<tr>
+					<th>Employee ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Gender</th>
+					<th>Date Of Birth</th>
+					<th>Pan Number</th>
+					<th>Aadhaar Number</th>
+					<th>Mobile Number</th>
+					<th>Email Address</th>
+					<th>Office Email</th>
+					<th>Permanent Address</th>
+					<th>Present Address</th>
+					<th>Blood Group</th>
+					<th>Profile Picture</th>
+					<th>Date Of Join</th>
+					<th>Employee Level</th>
+					<th>Post Name</th>
+					<th>Basic Pay</th>
+					<th>House Allowance </th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee : ${employees}">
+					<td th:text="${employee.emp_id}"></td>
+					<td th:text="${employee.firstName}"></td>
+					<td th:text="${employee.lastName}"></td>
+					<td th:text="${employee.gender}"></td>
+					<td th:text="${employee.dob}"></td>
+					<td th:text="${employee.panNum}"></td>
+					<td th:text="${employee.aadhaarNum}"></td>
+					<td th:text="${employee.mobileNum}"></td>
+					<td th:text="${employee.emailId}"></td>
+					<td th:text="${employee.officeMail}"></td>
+					<td th:text="${employee.permanentAddress}"></td>
+					<td th:text="${employee.presentAddress}"></td>
+					<td th:text="${employee.bloodGroup}"></td>
+					<td th:text="${employee.profilePict}"></td>
+					<td th:text="${employee.doj}"></td>
+					<td th:text="${employee.empLevel}"></td>
+					<td th:text="${employee.postName}"></td>
+					<td th:text="${employee.basicPay}"></td>
+					<td th:text="${employee.houseAllowance}"></td>
+			
+				</tr>
+			</tbody>
+		</table>
+		<br />
+</body>
+</html>

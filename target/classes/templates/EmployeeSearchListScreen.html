@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      
+        <style>
+            body{
+                font-family: "Times new roman";
+                background-color: white;
+                margin: 0;
+            }
+
+            h2{
+                background-color: gray;
+                color: black;
+                padding: 10px;
+                text-align: center;
+            }
+            td{
+                padding: 7px;
+            }
+            input{
+                height: 30px;
+                border-radius: 10px;
+                border:1px solid black;
+            }
+            input:focus{
+                outline: none;
+                border: 1px solid black;
+            }
+            input:hover{
+                box-shadow: 5px 5px 5px black;
+            }
+            .button{
+                background-color: gray;
+                color: black;
+                border: none;
+                padding: 7px
+            }
+            .button:hover {
+                cursor: pointer;
+                box-shadow: 5px 5px 5px red;
+            }
+            
+           table, th, td {
+			   border: 1px solid black;
+			   border-spacing: 0px;
+			}
+			th, td {
+				padding: 10px;
+			}
+            
+        </style>
+    </head>
+    <body>
+        <form method="post" action="/employeeSearchList">
+            <div id="Employee Search">
+                <h2 align="center">Employee Search List Screen</h2>
+                <table width="100%">
+                    <tr>
+                        <td>Emp No# </td>
+                        <td>
+                            <input type="text" placeholder="Emp No#" size="50" id="emp_id" name="emp_id">
+                        </td>
+                        <td>Emp name</td>
+                        <td>
+                            <input type="text" size="50" id="first_name" name="first_name">
+                        </td>                          
+                        
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <select>
+                                <option> Male</option>
+                                <option> Female</option>
+                                <option> Others</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="Submit" value="Submit" class="button" />
+                            
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+        </form>
+        
+        
+      <p>  
+        <h1> Employee Details</h1>
+	<br />
+	
+	 <form method="get" action="http://localhost:9000/employeeList">
+       
+	 <input type="Submit" value="Add New Employee" class="button" />
+	 </form>
+	  
+	  <form method="get" action="http://localhost:9000/employeeList">
+       
+	  <input type="Submit" value="CSV Download" class="button" onClick="" />
+	  </form>
+	  
+		<table>
+			<thead>
+				<tr>
+					<th>Employee </th>
+					
+					<th>Contact</th>
+					
+					<th>Level & Post</th>
+					
+					<th>Action</th>
+					
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+					<div th:text = "${employee.firstName} + ${employee.lastName}"> </div> 
+					  Emp #<div th:text = "${employee.emp_id}"> </div> 
+					</td>
+					
+					<td>
+					<div th:text="${employee.mobileNum}"> </div>
+					<div th:text="${employee.emailId}"></div>
+					<div th:text="${employee.officeMail}"></div>
+					
+					</td>
+					
+					<td>
+					
+					<div th:text="${employee.empLevel}"></div>
+					<div th:text="${employee.postName}"></div>
+					
+					</td>
+					
+					<td>
+					<a href="">Employements</a>
+					 / <a href="">Edit</a> / <a href="">Delete</a>
+					
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+		
+		</p>
+        
+		<br />
+    </body>
+</html>
